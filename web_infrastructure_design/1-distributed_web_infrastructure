@@ -1,19 +1,14 @@
-Requirements:
+1. Distributed web infrastructure
 
-You must add:
-2 servers
-1 web server (Nginx)
-1 application server
-1 load-balancer (HAproxy)
-1 set of application files (your code base)
-1 database (MySQL)
-You must be able to explain some specifics about this infrastructure:
-For every additional element, why you are adding it
-What distribution algorithm your load balancer is configured with and how it works
-Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
-How a database Primary-Replica (Master-Slave) cluster works
-What is the difference between the Primary node and the Replica node in regard to the application
-You must be able to explain what the issues are with this infrastructure:
-Where are SPOF
-Security issues (no firewall, no HTTPS)
-No monitoring
+Here is the diagram representing the Distributed web infrastructure for this task:
+
+![DIAGRAMA](task.1.png)
+
+FLUJO DEL DIAGRAMA:
+1- Usuario: El usuario abre el navegador y escribe www.foobar.com.
+2- DNS: El DNS resuelve la IP del balanceador de carga.
+3- (HAProxy): El balanceador distribuye las solicitudes entre los servidores disponibles.
+4- Servidor web (Nginx): Cada servidor Nginx maneja las solicitudes HTTP. Si es una solicitud dinámica, Nginx pasa la solicitud al servidor de aplicaciones.
+5- Servidor de aplicaciones: El servidor de aplicaciones maneja la lógica y, si es necesario, consulta la base de datos.
+6- Base de datos (MySQL): Almacena y recupera datos para la aplicación.
+7- Response: Los datos solicitados se envían de vuelta al servidor web y finalmente al usuario.

@@ -1,21 +1,13 @@
-Requirements:
+0. Simple Web Stack Diagram
 
-You must use:
-1 server
-1 web server (Nginx)
-1 application server
-1 application files (your code base)
-1 database (MySQL)
-1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
-You must be able to explain some specifics about this infrastructure:
-What is a server
-What is the role of the domain name
-What type of DNS record www is in www.foobar.com
-What is the role of the web server
-What is the role of the application server
-What is the role of the database
-What is the server using to communicate with the computer of the user requesting the website
-You must be able to explain what the issues are with this infrastructure:
-SPOF
-Downtime when maintenance needed (like deploying new code web server needs to be restarted)
-Cannot scale if too much incoming traffic
+Here is the diagram representing the simple web stack for this task:
+
+![DIAGRAMA](task.0.png)
+
+
+FLUJO DEL DIAGRAMA:
+1- Usuario: Conecta el usuario al DNS. Esto representa la solicitud inicial para resolver la IP del dominio.
+2- DNS: Conecta el DNS al servidor web, indicando que la IP (8.8.8.8) se usa para enviar la solicitud al servidor.
+3- Servidor Web: indica cómo se procesa la lógica de la aplicación.
+4- Servidor de Aplicaciones: Conecta el servidor de aplicaciones a la base de datos para simbolizar que, si es necesario, la aplicación accede a los datos.
+5- Response: la información obtenida de la base de datos pasa de vuelta al servidor de aplicaciones, luego al servidor web, y finalmente llega al navegador del usuario.
